@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<image class="full" src="{{shareImage}}" mode="widthFix"></image>
+<canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+
+<block wx:if="{{ready}}">
+
+    <view class="tabs borderN">
+        <view class="tab-item1 item padding-vertical borderN backgTr">
+            <button class="button-block button-positive backgTr border-blue fontS14" hover-class="border-blue-clk" bindtap="eventDraw">
+                重新绘制
+            </button>
+        </view>
+        <view class="tab-item1 item padding-vertical borderN backgTr">
+            <button class="button-block button-positive button-blue fontS14" hover-class="button-blue-clik" bindtap="saveToPhotoAlbum">
+                保存到手机相册
+            </button>
+        </view>
+    </view>
+
+    <view class="text-center mg-20">
+        <image src="{{ staticImgHost }}/logo.png" style="width: 65px;" mode="widthFix" alt="" title=""/>
+    </view>
+</block>
+

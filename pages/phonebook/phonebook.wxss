@@ -1,0 +1,260 @@
+/* CSS Document */
+.page {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "iconfont", "Microsoft YaHei" !important;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+page{
+    background-color: #efeef6;
+}
+a.text-d-n {
+    text-decoration: none;
+}
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.padding-top,
+.padding-vertical {
+    padding-top: 10px;
+}
+.padding-top,
+.padding-vertical {
+    padding-top: 10px;
+}
+.text-center {
+    text-align: center;
+}
+.button-block:after {
+    clear: both;
+}
+.backgTr {
+    background-color: transparent;
+}
+.backgW {
+    background-color: #fff!important;
+}
+.item.borderN,
+.panel-footer.borderN {
+    border: none;
+}
+.button.margLR {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.button-green {
+    color: #ffffff;
+    background-color: #14c58b;
+}
+.button.button-green-clik,.button-green-clik{
+    border-color: #498f24;
+    background-color: #66cc33;
+    color: #fff;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.mg-b-5 {
+    margin-bottom: 5px;
+}
+.mg-b-0 {
+    padding-bottom: 0!important;
+}
+.panel-body {
+    padding: 15px;
+}
+.mg-r-md {
+    margin-right: 15px;
+}
+.mg-t-50 {
+    margin-top: 50px;
+}
+.mg-t-10 {
+    margin-top: 10px;
+}
+.pull-left {
+    float: left!important;
+}
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.avatar-md {
+    width: 80px;
+    height: 80px;
+}
+.small-img{
+    width:12px;
+    height:13px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.panel-footer {
+    border-top: 1px solid #e8ecf3;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    background-color: #fcfcfc;
+}
+.text-muted,
+.text-muted a {
+    color: #b3b3b3;
+}
+.tabs{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: solid 1px #e5e5e5;
+}
+.tab-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    height: 100%;
+    text-align: center;
+    box-shadow: none;
+    border: none;
+}
+.padding-vertical{
+    padding: 10px 0;
+}
+.tab-item button{
+    width:60%;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+.tab-item button.active,.active{
+    border-bottom: solid 2px #2aa2c1;
+    font-weight: bold;
+}
+.pd-t-0 {
+    padding-top: 0!important;
+}
+.tabs-btm{
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+}
+.pos-re{
+    position: relative;
+}
+.card{
+    background-color: rgba(0,0,0,.7);
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    padding: 4px;
+    width:20px;
+    height:20px;
+    text-align:center;
+}
+.card1{
+    top: 10px;
+}
+.card2{
+    top: 60px;
+}
+.card-blue-box{
+    width: 18px;
+    height: 45px;
+    top: 50%;
+    margin-top: -35px;
+    right: 0;
+    background-color:  #2aa2c1;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    position: absolute;
+    z-index: 2;
+}
+.border-rad8{
+    border-radius: 8px;
+}
+.item.border-l-blue{
+    border-left: solid 3px #2aa2c1;
+}
+.pd-4-10{
+    padding: 4px 10px;
+}
+span{display:inline-block;}
+.fontW{
+    font-weight: bold;
+}
+.fontS14{
+    font-size:14px;
+}
+.fontS18{
+    font-size:18px;
+}
+.line-height1{
+    line-height: 1;
+}
+.imgW28{
+    width:28px;
+    height:28px;
+}
+.fontS14{
+    font-size:14px;
+}
+.fontS18{
+    font-size:18px;
+}
+
+/**add 2018/7/31**/
+.cardM{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:100;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,.3);
+}
+.cardM button{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    position: absolute;
+    left:50%;
+    margin-left:-32px;
+    line-height: 64px;
+}
+.fontS12{
+    font-size:12px;
+}
+.imgW20{
+    width: 20px;
+    height: 20px;
+}
+.pos-ab{
+    position:absolute;
+}
+
+/*# sourceMappingURL=text.css.map */

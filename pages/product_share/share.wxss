@@ -1,0 +1,82 @@
+/* CSS Document */
+.page {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "iconfont", "Microsoft YaHei" !important;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+page{
+    background-color: #efeef6;
+}
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.text-center {
+    text-align: center;
+}
+.backgTr {
+    background-color: transparent;
+}
+.item.borderN,
+.panel-footer.borderN {
+    border: none;
+}
+button::after{ border: none; }
+.button-blue{
+    border-color: #2aa2c1;
+    background-color: #2aa2c1;
+    color: #fff;
+}
+.button.button-blue-clik,.button-blue-clik{
+    border-color: #067fc1;
+    background-color: #067fc1;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.mg-20{margin:20px;}
+
+.pd-t-0 {
+    padding-top: 0!important;
+}
+.border-blue{border:solid 1px #2aa2c1;color:#2aa2c1;}
+.border-blue-clk{  background-color: #2aa2c1;color:#fff;}
+
+.tabs{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: solid 1px #e5e5e5;
+}
+.tab-item1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+}
+.borderN {    border: none;}

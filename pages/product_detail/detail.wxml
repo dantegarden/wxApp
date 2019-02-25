@@ -1,0 +1,119 @@
+<!--index.wxml-->
+<block wx:if="{{ready}}">
+
+    <!-- 展示内容 -->
+    <block wx:if="{{share.lastShareId && session.userId!=ownerId}}">
+        <view class="pd-15 pd-l-75 pos-re bg-blue po-fix">
+            <view class="pos-ab left-div">
+                <image wx:if="{{ownerProfile.avatar}}" class="imgW50 pos-ab left-img" src="{{imgHost + ownerProfile.avatar}}" mode="widthFix"></image>
+                <image wx:else class="imgW50 pos-ab left-img" src="{{ staticImgHost }}/face4.jpg" mode="widthFix"></image>
+            </view>
+            <view class="pos-ab right-div lineh60" catchtap="goOwnerProfile">
+                <span class="fontS14">TA的名片</span>
+                <image class="imgW20 right-img" src="../../static/images/img55.png" mode="widthFix"></image>
+            </view>
+            <view class="fontS14">{{ownerProfile.loginName}}</view>
+            <view class="fontS12">{{ownerProfile.job}}</view>
+        </view>
+        <view style="margin-bottom: 65px;"></view>
+    </block>
+
+    <view class="borderN backgTr mg-b-0">
+        <view class="backgW pos-re">
+            <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500">
+                <block wx:for="{{product.productImageList}}" wx:for-index="index" wx:for-item="lbtImg" wx:key="id">
+                    <swiper-item>
+                        <!--    mode="widthFix"  会导致图片展示不全 -->
+                        <image class="slide-image" src="{{imgHost + lbtImg.imageId}}" mode="aspectFill" data-id="{{lbtImg.imageId}}" bindlongtap="previewImage"></image>
+                    </swiper-item>
+                </block>
+
+                <block wx:if="{{product.productImageList==0}}">
+                    <swiper-item>
+                        <image class="slide-image" src="{{ staticImgHost }}/noneproduct.jpg" mode="aspectFill"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+
+            <view class="cardBox">
+                <button class="card-new img-circle line-height1 imgW28" bindtap="showShareSelectionModal">
+                    <image class="imgW16" src="{{ staticImgHost }}/img20.png" mode="widthFix"></image>
+                </button>
+                <block wx:if="{{product.companyId!=session.companyId}}">
+                    <button class="card-new img-circle line-height1 imgW28" catchtap="leaveMessage">
+                        <image class="imgW16" src="{{ staticImgHost }}/icon_msg.png" mode="widthFix" style="margin-top:2px;"></image>
+                    </button>
+                </block>
+                <button class="card-new img-circle line-height1 imgW28" catchtap="goHome">
+                    <image class="imgW16" src="{{ staticImgHost }}/img24.png" mode="widthFix"></image>
+                </button>
+            </view>
+        </view>
+        <view class="panel-body backgW pos-re">
+            <view class="item pd-r-40 borderN pd-4-10 pd-l-0 fonts12">
+                <span class="color-orange fontS18 mg-r-md">￥{{product.currentPrice}}</span>
+                [<span class="text-del">￥{{product.originalPrice}}</span>]
+            </view>
+            <view class="item pd-r-40 borderN pd-4-10 pd-l-0">
+                <span class="fontW">{{product.productName}}</span>
+            </view>
+            <view class="item pd-r-40 borderN pd-4-10 pos-re pd-l-0">
+                <image class="small-img left-icon" src="{{ staticImgHost }}/img23.png"></image>
+                <span class="mg-l-50 colRed fontS12">{{product.advertising}} </span>
+            </view>
+        </view>
+    </view>
+
+    <view wx:for="{{product.productDescribeList}}" wx:for-index="index" wx:for-item="item" wx:key="id"
+          class="borderN backgTr mg-b-0 mg-t-15">
+        <view class="panel-body backgW pos-re">
+            <view class="item col-gary borderN" wx:if="{{item.title}}" style="padding:0px;">
+                <span class="line-l  col-blk">{{item.title}}</span>
+            </view>
+
+            <block wx:for="{{item.productDescribeListImages}}" wx:for-item="pImg" wx:key="imageId">
+                <image class="mg-t-15 full" src="{{imgHost + pImg.imageId}}" mode="widthFix" data-id="{{pImg.imageId}}" bindlongtap="previewImage"></image>
+            </block>
+            <text wx:if="{{item.text}}" class="item pd-r-40 borderN pd-4-10 pd-l-0">
+                {{item.text}}
+            </text>
+        </view>
+    </view>
+
+    <!--分享弹窗-->
+    <block>
+        <view class="mbox pos-f-b {{showShareModal?'':'mboxH'}}"></view>
+        <view class="pos-f-b {{showShareModal?'':'pos-f-b-hide'}}">
+            <view class="item backgW tabs borderN pd-t-20">
+                <view class="tab-item1" style="opacity:1;">
+                    <button class="line-height1 backgTr mg-b-sm" open-type="share" >
+                        <image class="imgW40" src="{{ staticImgHost }}/img36.png" mode="widthFix"></image>
+                    </button>
+                    转发给微信好友
+                </view>
+                <view class="tab-item1" style="opacity:1;">
+                    <button class="line-height1 backgTr mg-b-sm" bindtap="shareToCommunity">
+                        <image class="imgW40" src="{{ staticImgHost }}/img37.png" mode="widthFix"></image>
+                    </button>
+                    生成名片海报
+                </view>
+            </view>
+            <button class="button-block button-positive button-blue" hover-class="button-blue-clik" bindtap="hideShareSelectionModal">
+                取消
+            </button>
+        </view>
+    </block>
+
+    <view wx:if="{{session.flag!==1}}" class="sh fontS12" catchtap="goCreateAccount">
+        <view>创建</view>
+        <view>我的商号</view>
+    </view>
+
+</block>
+
+<!-- 加载时显示 -->
+<block wx:else>
+    <loading>
+        加载中...
+    </loading>
+</block>

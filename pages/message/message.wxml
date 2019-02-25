@@ -1,0 +1,54 @@
+<form bindsubmit="sendMessage" report-submit="true">
+    <view class="list pd-l-20 backgW mg-t-sm">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">姓名</span>
+            <input type="text" name="loginName" id="loginName"
+                   data-field="message.loginName" bindblur="bindInputField" value="{{message.loginName}}"
+                   data-validate="true" data-validate-rules="required"
+                   class="item-note {{validation.message.loginName.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.message.loginName.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.message.loginName.errMsg}}</span>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">电话</span>
+            <input type="text" name="phone" id="phone"
+                   data-field="message.phone" bindblur="bindInputField" value="{{message.phone}}"
+                   data-validate="true" data-validate-rules="required phone"
+                   class="item-note {{validation.message.phone.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.message.phone.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.message.phone.errMsg}}</span>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">单位名称</span>
+            <input type="text" name="company" id="company"
+                   data-field="message.company" bindblur="bindInputField" value="{{message.company}}"
+                   data-validate="true" data-validate-rules="required"
+                   class="item-note {{validation.message.company.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.message.company.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.message.company.errMsg}}</span>
+        </view>
+    </view>
+    <view class="list pd-l-20 backgW mg-b-sm">
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+            <textarea name="words" id="words" placeholder="请输入您要咨询的问题"
+                  data-field="message.words" bindinput="bindInputField" value="{{message.words}}"
+                  adjust-position="true" cursor-spacing="140" maxlength="300"
+                  data-validate="true" data-validate-rules="required"
+                  class="full item-note {{validation.message.words.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.message.words.isErr}}" style="bottom:0;left:0px;" class="pos-ab fontS12 colRed">{{validation.message.words.errMsg}}</span>
+        </view>
+    </view>
+
+    <view class="item padding-vertical borderN backgTr">
+        <button class="button-block button-positive button-green" hover-class="button-green-clik" formType="submit">
+            提交
+        </button>
+    </view>
+</form>
+
+
+
+

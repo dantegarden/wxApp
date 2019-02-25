@@ -1,0 +1,108 @@
+<!--index.wxml-->
+<block wx:if="{{ready}}">
+    <form bindsubmit="saveProduct">
+        <view class="item borderN backgTr">
+            <view class="list backgW">
+                <view class="item pd-l-20 col-gary pd-r-40 borderN border-b">
+                    <span class="line-l col-blk">上传产品图</span>
+                </view>
+            </view>
+            <view class="panel-body backgW item borderN">
+                <block wx:for="{{product.productImageList}}" wx:for-index="index" wx:for-item="lbtImg" wx:key="index">
+                    <view class="imgbox4 pos-re" style="background: url('{{imgHost + lbtImg.imageId}}') no-repeat center;background-size: 100%;">
+                        <image class="userinfo-avatar full" bindtap="previewImage" data-id="{{lbtImg.imageId}}"
+                               src="{{ staticImgHost }}/img26.png" mode="widthFix"></image>
+                        <span class="button-del3" bindtap="deleteUploadImage" data-id="{{lbtImg.imageId}}">
+                    <image class="imgW20" src="{{ staticImgHost }}/img28.png" mode="aspectFill"></image>
+                </span>
+                    </view>
+                </block>
+
+                <view class="imgbox4" bindtap="uploadLbtImg">
+                    <image class="userinfo-avatar full"  src="{{ staticImgHost }}/img27.jpg" mode="widthFix"></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="list pd-l-20 backgW">
+            <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+                <span class="line-l col-blk">产品信息</span>
+            </view>
+        </view>
+        <view class="list pd-l-20 backgW mg-b-sm">
+            <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+                <span class="width80">产品名称</span>
+                <input type="text" name="productName" id="productName"
+                       data-field="product.productName" value="{{product.productName}}" bindblur="bindInputField" placeholder="请输入产品名称"
+                       data-validate="true" data-validate-rules="required"
+                       class="item-note {{validation.product.productName.isErr && 'btnError'}}"/>
+                <span wx:if="{{validation.product.productName.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.product.productName.errMsg}}</span>
+            </view>
+            <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+                <span class="width80">原价</span>
+                <input type="digit" name="originalPrice" id="originalPrice"
+                       data-field="product.originalPrice" value="{{product.originalPrice}}" bindblur="bindInputField" placeholder="请输入原价"
+                       data-validate="true" data-validate-rules="required money"
+                       class="item-note {{validation.product.originalPrice.isErr && 'btnError'}}"/>
+                <span wx:if="{{validation.product.originalPrice.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.product.originalPrice.errMsg}}</span>
+            </view>
+            <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+                <span class="width80">优惠价</span>
+                <input type="digit" name="currentPrice" id="currentPrice"
+                       data-field="product.currentPrice" value="{{product.currentPrice}}" bindblur="bindInputField" placeholder="请输入优惠价"
+                       data-validate="true" data-validate-rules="required money"
+                       class="item-note {{validation.product.currentPrice.isErr && 'btnError'}}"/>
+                <span wx:if="{{validation.product.currentPrice.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.product.currentPrice.errMsg}}</span>
+            </view>
+            <view class="item col-gary pd-r-40 borderN pd-l-0">
+                <span class="width80">推广语</span>
+                <input type="text" data-field="product.advertising" value="{{product.advertising}}" bindblur="bindInputField" placeholder="请输入推广语" class="item-note"/>
+            </view>
+        </view>
+
+        <block wx:for="{{product.productDescribeList}}" wx:for-index="index" wx:for-item="describe" wx:key="id">
+            <view class="list pd-l-20 backgW">
+                <view class="item col-gary pd-r-40 borderN pd-l-0 pos-re" >
+                    <span class="line-l  col-blk">{{describe.title}}</span>
+                    <view class="button-del " data-item="{{describe}}" bindtap="editDescribe">
+                        <image src="{{ staticImgHost }}/img19.png" class="imgW16" mode="widthFix"></image>
+                        编辑
+                    </view>
+                    <view class="button-del button-del2" data-key="{{describe.key}}" bindtap="delDescribe">
+                        <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+                        删除
+                    </view>
+                </view>
+            </view>
+            <view class="list pd-20 pd-t-0 backgW  mg-b-10">
+                <view class="pos-re">
+                    <image class="userinfo-avatar full"
+                           wx:for="{{describe.productDescribeListImages}}" wx:for-index="index" wx:for-item="dImg" wx:key="imageId"
+                           src="{{imgHost + dImg.imageId}}" mode="widthFix"></image>
+                </view>
+                <text>{{describe.text}}</text>
+            </view>
+        </block>
+
+        <view class="list pd-20 backgW">
+            <view class="border-gary mg-b-10 text-center fontW pd-20" bindtap="addDescribe">
+                <image class="userinfo-avatar" src="{{ staticImgHost }}/img5.png" class="imgW16"
+                       mode="widthFix"></image>
+                <view class="colGreen">点击添加产品描述</view>
+            </view>
+        </view>
+
+        <view class="item padding-vertical borderN backgTr">
+            <button class="button-block button-positive button-green" hover-class="button-green-clik" formType="submit">
+                保存
+            </button>
+        </view>
+    </form>
+</block>
+
+<!-- 加载时显示 -->
+<block wx:else>
+    <loading>
+        加载中...
+    </loading>
+</block>

@@ -1,0 +1,204 @@
+/* CSS Document */
+.page {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "iconfont", "Microsoft YaHei" !important;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+page{
+    background-color: #efeef6;
+}
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.text-center {
+    text-align: center;
+}
+.backgTr {
+    background-color: transparent;
+}
+.backgW {
+    background-color: #fff!important;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.box-circle {
+    border-radius:4px;
+}
+.item.borderN,
+.panel-footer.borderN {
+    border: none;
+}
+.mg-b-sm {
+    margin-bottom: 10px;
+}
+.mg-b-0 {
+    padding-bottom: 0!important;
+}
+.panel-body {
+    padding: 15px;
+}
+.mg-r-md {
+    margin-right: 15px;
+}
+.mg-t-50 {
+    margin-top: 50px;
+}
+.mg-l-50 {
+    margin-left: 30px;
+}
+.pd-l-0 {
+    padding-left: 0!important;
+}
+.small-img{
+    width: 20px;
+    height: 20px;
+}
+.mg-r-xs {
+    margin-right: 5px;
+}
+.imgW40{
+    width: 40px;
+    height: 40px;
+}
+.imgW16{
+    width:16px;
+    height: 16px;
+}
+.border-gary {
+    border: solid 1px #ddd;
+    overflow: hidden;
+}
+.fontW{
+    font-weight: bold;
+}
+input,span{
+    display: inline-block;
+    vertical-align:middle;
+}
+.button.button-green-clik,.button-green-clik{
+    border-color: #498f24;
+    background-color: #66cc33;
+    color: #fff;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.list>.item>input{
+    max-width:80%;
+    width:200px;
+}
+.pos-re{
+    position: relative;
+}
+.button-del{
+    color: #fff;
+    background-color: rgba(0,0,0,.7);
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.button-del2{
+    right: 75px;
+}
+image{
+    vertical-align: text-bottom;
+}
+.line-height1{
+    line-height: 1;
+}
+.line-l{
+    border-left: solid 3px #c7d342;
+    display: inline-block;
+    padding-left: 10px;
+}
+.fonts14{
+    font-size: 14px;
+}
+.card{
+    background-color: rgba(0,0,0,.7);
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    padding: 4px;
+    width:20px;
+    height:20px;
+    text-align:center;
+}
+.card1{
+    top: 10px;
+}
+.card2{
+    top: 60px;
+}
+.pd-4-10{
+    padding:4px 10px;
+}
+.mg-t-5{
+    margin-top:5px;
+}
+.color-orange{
+    color: #ff9c00;
+}
+.text-del{
+    text-decoration:line-through;
+}
+.fonts12{
+    font-size: 12px;
+}
+.fr{
+    float:right;
+}
+.left-icon{
+    position: absolute;
+    top: 7px;
+    left: 0;
+}
+.img-footer {
+    width: 100px;
+    height: 60px;
+}
+.button-green {
+    color: #ffffff;
+    background-color: #14c58b;
+}
+/*# sourceMappingURL=text.css.map */
+
+.cardBox{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.card-new{
+    background-color: rgba(0,0,0,.6);
+    padding: 4px;
+    text-align:center;
+    margin-bottom:20px;
+    color: #fff;
+}
+.card-new>image{
+    margin-right:5px;
+    vertical-align: text-top;
+}
+.imgW18{
+    width: 18px;
+    height:18px;
+}
+.box-px{display: inline-block;margin-right:5px;vertical-align: text-top;}
+.box-px.imgW18>image{width:18px;height:9px;position: absolute;}
+.box-px .box-px1{top:0;left:0;}
+.box-px .box-px2{bottom:0;left:0;}

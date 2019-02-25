@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<block>
+    <view class="backgW mg-b-sm" catchtap="goDetail">
+        <view class="text-center panel-body">
+            昨日概况
+        </view>
+        <view class="item borderN backgW tabs borderN panel-footer text-center">
+            <view class="tab-item1 border-r">
+                <view class="col-gary">访问人数</view>
+                <view class="fontS18 fontW">{{yesterdayVisits.visits.count}}</view>
+                <view><span class="mg-r-xs col-gary">日</span><span class="width70 {{yesterdayVisits.visits.day[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.visits.day}}</span></view>
+                <view><span class="mg-r-xs col-gary">周</span><span class="width70 {{yesterdayVisits.visits.week[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.visits.week}}</span></view>
+                <view><span class="mg-r-xs col-gary">月</span><span class="width70 {{yesterdayVisits.visits.month[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.visits.month}}</span></view>
+            </view>
+            <view class="tab-item1 border-r">
+                <view class="col-gary">新访问人数</view>
+                <view class="fontS18 fontW">{{yesterdayVisits.newVisits.count}}</view>
+                <view><span class="mg-r-xs col-gary">日</span><span class="width70 {{yesterdayVisits.newVisits.day[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.newVisits.day}}</span></view>
+                <view><span class="mg-r-xs col-gary">周</span><span class="width70 {{yesterdayVisits.newVisits.week[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.newVisits.week}}</span></view>
+                <view><span class="mg-r-xs col-gary">月</span><span class="width70 {{yesterdayVisits.newVisits.month[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.newVisits.month}}</span></view>
+            </view>
+            <view class="tab-item1">
+                <view class="col-gary">转发次数</view>
+                <view class="fontS18 fontW">{{yesterdayVisits.share.count}}</view>
+                <view><span class="mg-r-xs col-gary">日</span><span class="width70 {{yesterdayVisits.share.day[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.share.day}}</span></view>
+                <view><span class="mg-r-xs col-gary">周</span><span class="width70 {{yesterdayVisits.share.week[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.share.week}}</span></view>
+                <view><span class="mg-r-xs col-gary">月</span><span class="width70 {{yesterdayVisits.share.month[0]=='-'?'colGreen':'colRed'}}">{{yesterdayVisits.share.month}}</span></view>
+            </view>
+        </view>
+    </view>
+</block>
+
+<block wx:if="{{productVisits.length>0}}">
+    <view class="backgW mg-b-sm">
+        <view class="text-center panel-body">
+            产品访问次数
+        </view>
+        <view class="tabs panel-footer border-t col-gary bg-gary">
+            <view class="tab-item1 tab-item3">产品名称</view>
+            <view class="tab-item1 text-center">访问次数</view>
+            <view class="tab-item1 text-center">占比</view>
+        </view>
+
+        <block wx:for="{{productVisits}}" wx:for-index="index" wx:for-item="productVisit" wx:key="index"
+               data-id="{{productVisit.productId}}">
+            <view class="backgW tabs panel-footer border-t col-gary">
+                <view class="tab-item1 tab-item3 overf-ell">
+                    {{productVisit.productName}}
+                </view>
+                <view class="tab-item1 text-center">{{productVisit.count}}</view>
+                <view class="tab-item1 text-center">{{productVisit.percent}}%</view>
+            </view>
+        </block>
+
+    </view>
+</block>
+
+
+<block>
+    <view class="backgW mg-b-sm">
+        <view class="text-center panel-body">
+            累计访问人数
+        </view>
+        <view class="picker_group fontS14">
+            <picker mode="date" value="{{dateFilter.startDate}}"  end="{{dateFilter.endDate}}" bindchange="bindStartDateChange">
+                <view class="picker">
+                    {{dateFilter.startDate}}
+                </view>
+            </picker>
+            到
+            <picker mode="date" value="{{dateFilter.endDate}}" start="{{dateFilter.startDate}}" end="2099-01-01" bindchange="bindEndDateChange">
+                <view class="picker">
+                    {{dateFilter.endDate}}
+                </view>
+            </picker>
+            <span class="colGreen fr fontS16">{{cumulativeVisits.total}}人</span>
+
+        </view>
+        <view class="chartContainer">
+            <!-- 折线图   -->
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="chart" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+        </view>
+    </view>
+</block>
+
+
+
+
+
+

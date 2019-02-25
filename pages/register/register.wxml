@@ -1,0 +1,47 @@
+<block wx:if="{{ready}}">
+    <view class="page">
+        <view class="item padding-vertical borderN backgTr">
+            <button wx:if="{{canIUse}}" open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo"
+                    class="button-block button-positive button-green" hover-class="button-green-clik">
+                ＋快速创建我的名片
+            </button>
+            <view wx:else>请升级微信版本</view>
+        </view>
+        <block>
+            <view class="item borderN backgTr mg-b-0" bindtap="viewProfile">
+                <view class="panel-body backgW">
+                    <view class="pull-left mg-r-md">
+                        <image wx:if="{{helper.avatar}}" src="{{imgHost + helper.avatar}}" class="avatar avatar-md img-circle" alt="" />
+                        <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar avatar-md img-circle" alt=""/>
+                    </view>
+                    <view class="mg-b-sm fontW fontS18">{{helper.loginName}}</view>
+                    <view class="mg-b-sm">{{helper.job}}</view>
+                    <view class="p fontS14 col-gary">{{helper.company}}</view>
+                </view>
+
+                <view class="item panel-footer borderN backgW mg-b-0">
+                    <view  class="text-d-n a">
+                        <image src="{{ staticImgHost }}/img1.png" mode="aspectFit" class="small-img mg-r-md verB" alt="" title=""/>{{helper.phone}}
+                    </view>
+                </view>
+                <view class="item panel-footer borderN backgW">
+                    <view  class="text-muted text-d-n">
+                        <image src="{{ staticImgHost }}/img2.png" mode="aspectFit" class="small-img mg-r-md verB" alt="" title=""/>{{helper.companyAddress}}
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="text-center mg-t-50">
+            <image src="{{ staticImgHost }}/logo.png" class="img-footer" mode="scaleToFill" alt="" title=""/>
+        </view>
+    </view>
+</block>
+
+<!-- 加载时显示 -->
+<block wx:else>
+    <loading>
+        加载中...
+    </loading>
+</block>
+
+

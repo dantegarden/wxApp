@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<block wx:for="{{products}}" wx:for-index="index" wx:for-item="product" wx:key="index">
+    <view data-id="{{product.productId}}" bindtap="goDetail">
+        <view class="item borderN backgTr mg-b-0">
+            <view class="backgW pos-re box-circle">
+                <image wx:if="{{product.poster}}" class="full" src="{{imgHost + product.poster}}" mode="widthFix"></image>
+                <image wx:else class="full" src="{{ staticImgHost}}/noneproduct.jpg" mode="widthFix"></image>
+
+                <view class="cardBox">
+                    <button class="card-new line-height1 fontS12" data-id="{{product.productId}}" catchtap="deleteProduct">
+                        <image class="imgW16" src="{{ staticImgHost }}/img4.png" mode="widthFix"></image>删除
+                    </button>
+                    <button wx:if="{{product.status===0}}" class="card-new line-height1 fontS12" data-id="{{product.productId}}" catchtap="pullOnProduct">
+                        <image class="imgW16" src="{{ staticImgHost }}/img40.png" mode="widthFix"></image>上架
+                    </button>
+                    <button wx:if="{{product.status===1}}" class="card-new line-height1 fontS12" data-id="{{product.productId}}" catchtap="pullOffProduct">
+                        <image class="imgW16" src="{{ staticImgHost }}/img41.png" mode="widthFix"></image>下架
+                    </button>
+                    <button wx:if="{{product.status===1}}" class="card-new line-height1 fontS12" data-id="{{product.productId}}" catchtap="orderProduct">
+                        <image class="imgW16" src="{{ staticImgHost }}/img42.png" mode="widthFix"></image>排序
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="item borderN backgTr {{index==products.length-1?'':'mg-b-0'}} mg-t-0">
+            <view class="panel-body backgW pos-re box-circle mg-t-0">
+                <view class="item pd-r-40 borderN pd-4-10 pd-l-0 fonts12">
+                    <span class="color-orange fontS18 mg-r-md">￥{{product.currentPrice}}</span>
+                    [<span class="text-del">￥{{product.originalPrice}}</span>]
+                </view>
+                <view class="item pd-r-40 borderN pd-4-10 pd-l-0">
+                    <span class="fontW">{{product.productName}}</span>
+                </view>
+                <view class="item pd-r-40 borderN pd-4-10 pos-re pd-l-0">
+                    <image class="small-img left-icon" src="{{ staticImgHost }}/img23.png"></image>
+                    <span class="mg-l-50">{{product.advertising}} </span>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+
+<view class="list pd-20 backgW mg-b-10">
+    <view class="border-gary text-center fontW pd-20" bindtap="addProduct">
+        <image class="userinfo-avatar" src="{{ staticImgHost }}/img5.png" class="imgW16" mode="widthFix"></image>
+        <view class="colGreen">点击添加产品</view>
+    </view>
+</view>

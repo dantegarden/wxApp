@@ -1,0 +1,72 @@
+<!--index.wxml-->
+
+<block>
+    <view class="tabs">
+        <view class="tab-item">
+             <span class="{{currentTab==0?'active':''}} pd-4-10 half"
+                   data-current="0" bindtap="clickTab">
+                留言给我
+             </span>
+        </view>
+        <view class="tab-item">
+            <span class="{{currentTab==1?'active':''}} pd-4-10 half"
+                  data-current="1" bindtap="clickTab">
+               我的留言
+            </span>
+        </view>
+    </view>
+</block>
+
+
+<block wx:if="{{messageList.length>0}}">
+    <block wx:if="{{currentTab==0}}">
+        <view class="borderN mg-b-0 backgW pos-re border-b" wx:for="{{messageList}}" wx:for-item="item" wx:key="item.id"
+              data-id="{{item.id}}" bindtap="goMessageDetail">
+            <span wx:if="{{item.status==0}}" class="box-red2"></span>
+            <image wx:if="{{item.fromUserAvatar}}" src="{{ imgHost + item.fromUserAvatar }}" class="pos-ab imgW40" mode="aspectFill"/>
+            <image wx:else src="{{ staticImgHost }}/face4.jpg" class="pos-ab imgW40" mode="aspectFill"/>
+            <view class="mg-l-img-60">
+                <view class="mg-b-sm panel-body pd-l-0 pd-b-0">
+                    <view  class="text-d-n fl fontS16">
+                        <span>{{item.loginName}}</span>
+                        <span class="col-gary fontS14 border-l">{{item.company}}</span>
+                    </view>
+                    <view class="fr fontS12 col-gary">{{item.sendTime}}</view>
+                </view>
+                <view  class="panel-body pd-l-0 pd-t-0 col-gary fontS14 overEll">
+                    {{item.words}}
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{currentTab==1}}">
+        <view class="borderN mg-b-0 backgW pos-re border-b" wx:for="{{messageList}}" wx:for-item="item" wx:key="item.id"
+              data-id="{{item.id}}" bindtap="goMessageDetail">
+            <span wx:if="{{item.status==0}}" class="box-red2"></span>
+            <image wx:if="{{item.toUserAvatar}}" src="{{ imgHost + item.toUserAvatar }}" class="pos-ab imgW40" mode="aspectFill"/>
+            <image wx:else src="{{ staticImgHost }}/face4.jpg" class="pos-ab imgW40" mode="aspectFill"/>
+            <view class="mg-l-img-60">
+                <view class="mg-b-sm panel-body pd-l-0 pd-b-0">
+                    <view  class="text-d-n fl fontS16">
+                        <span>{{item.toUserName}}</span>
+                        <span class="col-gary fontS14 border-l">{{item.toUserCompany}}</span>
+                    </view>
+                    <view class="fr fontS12 col-gary">{{item.sendTime}}</view>
+                </view>
+                <view  class="panel-body pd-l-0 pd-t-0 col-gary fontS14 overEll">
+                    {{item.words}}
+                </view>
+            </view>
+        </view>
+    </block>
+</block>
+
+<block wx:else>
+    <view class="panel-body borderN text-center col-gary">
+        <view wx:if="{{currentTab===0}}" class="mg-t-50 mg-b-50">暂时没有客户给您留言</view>
+        <view wx:elif="{{currentTab===1}}" class="mg-t-50 mg-b-50">您没有给其他人留言过</view>
+    </view>
+</block>
+
+
+

@@ -1,0 +1,29 @@
+<!--index.wxml-->
+
+<block>
+    <view class="item borderN backgTr">
+        <view class="backgW pos-re pd-b-20 radius-top">
+            <image class="full" src="{{ staticImgHost }}/img25.jpg" mode="widthFix"></image>
+        </view>
+        <view class="backgW text-center fontW pd-b-10">
+            {{shareUserProfile.loginName}}
+        </view>
+        <view class="backgW text-center fonts14 pd-b-10">
+            邀请您加入
+        </view>
+        <view class="backgW text-center fontW col-blue pd-b-20 radius-bottom">
+            {{shareUserProfile.company}}
+        </view>
+    </view>
+</block>
+
+
+<view class="item borderN backgTr mg-t-10">
+    <button class="button-block button-positive button-blue" hover-class="button-blue-clik" bindtap="applyInvite">
+            同意
+    </button>
+</view>
+
+<view class="text-center mg-t-50">
+    <image src="{{ staticImgHost }}/logo.png" class="img-footer" mode="scaleToFill" alt="" title=""/>
+</view>

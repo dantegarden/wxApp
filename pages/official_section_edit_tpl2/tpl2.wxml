@@ -1,0 +1,50 @@
+<view class="list pd-l-20 backgW mg-t-sm">
+    <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+        <span class="line-l">
+          <input type="text" data-field="sectionItem.title" value="{{sectionItem.title}}" bindblur="bindInputField" maxlength="20"
+                 placeholder="请输入大标题" placeholder-class="col-blk fontS16 fontW" class="item-note col-blk fontS16 fontW" />
+        </span>
+    </view>
+</view>
+
+<block wx:if="{{sectionItem.sectionImageList.length>0}}">
+    <view wx:for="{{sectionItem.sectionImageList}}" wx:for-index="index" wx:for-item="sIimg" wx:key="sIimg.imageId"
+            class="list pd-20 backgW {{sectionItem.sectionImageList.length==index+1?'border-b':''}}">
+        <view class="pos-re">
+            <image class="userinfo-avatar full" src="{{imgHost + sIimg.imageId}}" mode="widthFix"></image>
+            <view class="button-del" data-imageid="{{sIimg.imageId}}" bindtap="deleteSectionItemImage">
+                <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+                删除
+            </view>
+        </view>
+    </view>
+</block>
+
+<view class="list pd-20 backgW border-b">
+    <view class="border-gary text-center fontW pd-20" bindtap="uploadSectionItemImage">
+        <image class="userinfo-avatar" src="{{ staticImgHost }}/img5.png" class="imgW16"  mode="widthFix"></image>
+        <view class="colGreen">点击添加图片</view>
+    </view>
+</view>
+
+<block wx:if="{{template==2}}">
+    <view class="list pd-l-20 backgW border-b">
+        <view class="item col-gary pd-r-40 borderN pd-l-0 ">
+            <input type="text" data-field="sectionItem.subTitle" value="{{sectionItem.subTitle}}" bindblur="bindInputField" maxlength="20"
+                   placeholder="请输入副标题" placeholder-class="col-blk fontS16" class="item-note col-blk fontS16" />
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW mg-b-sm border-b" >
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+        <textarea data-field="sectionItem.text" value="{{sectionItem.text}}" bindinput="bindInputField" maxlength="300" adjust-position="true" cursor-spacing="140"
+                  placeholder="在此处输入正文" placeholder-class="col-blk fontS16" class="item-note col-blk fontS16 full" style="height:60px;" name="textarea"/>
+        </view>
+    </view>
+</block>
+
+<view class="item padding-vertical borderN backgTr">
+    <button class="button-block button-positive button-green" hover-class="button-green-clik" bindtap="saveSectionItem">
+        保存
+    </button>
+</view>

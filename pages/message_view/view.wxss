@@ -1,0 +1,89 @@
+/* CSS Document */
+.page {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "iconfont", "Microsoft YaHei" !important;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+page{
+    background-color: #efeef6;
+}
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.text-center {
+    text-align: center;
+}
+.backgTr {
+    background-color: transparent;
+}
+.backgW {
+    background-color: #fff!important;
+}
+.item.borderN,
+.panel-footer.borderN {
+    border: none;
+}
+.mg-b-sm {
+    margin-bottom: 10px;
+}
+.mg-t-sm{
+    margin-top: 10px;
+}
+.mg-b-0 {
+    padding-bottom: 0!important;
+}
+.panel-body {
+    padding: 15px;
+}
+
+.item.border-b, .border-b {
+    border-bottom: solid 1px #ddd;
+}
+.item-note {
+    color: #000;
+    font-size: 14px;
+}
+.pd-l-0{
+    padding-left: 0;
+}
+.col-gary {
+    color: #aaa;
+}
+.col-blk{
+    color: #000;
+
+}
+.width80{
+    width: 80px;
+    display: inline-block;
+}
+input,span,text{
+    display: inline-block;
+    vertical-align:middle;
+}
+.list>.item>input{
+    max-width:80%;
+    width:200px;
+}
+.pos-re{
+    position: relative;
+}
+.pull-left.imgW40 {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    display: block;
+    margin-top: -20px;
+}

@@ -1,0 +1,73 @@
+<block wx:if="{{messageType==0}}">
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <image wx:if="{{message.fromUserAvatar}}" class="pull-left img-circle imgW40" src="{{imgHost + message.fromUserAvatar}}" mode="aspectFill"></image>
+            <image wx:else class="pull-left img-circle imgW40" src="{{ staticImgHost }}/face4.jpg" mode="aspectFill"></image>
+            <span class="width80">　</span>
+            <text class="item-note">{{message.loginName}}</text>
+            <image wx:if="{{message.fromUserCompanyId}}"
+                    bindtap="goProfile" data-userid="{{message.fromUserId}}" class="pull-right avatar imgW16 tel-image"  src="../../static/images/icon_profile.png" mode="cover"></image>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">电话</span>
+            <text class="col-blk">{{message.phone}}</text>
+            <image bindtap="telphone" data-number="{{message.phone}}" class="pull-right avatar imgW16 tel-image"  src="{{ staticImgHost }}/img21.png" mode="cover"></image>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">单位名称</span>
+            <text class="col-blk">{{message.company}}</text>
+        </view>
+    </view>
+    <view class="list pd-l-20 backgW mg-b-sm">
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+            <text>{{message.words}}</text>
+        </view>
+    </view>
+</block>
+
+<block wx:if="{{messageType==1}}">
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <image wx:if="{{message.toUserAvatar}}" class="pull-left img-circle imgW40" src="{{imgHost + message.toUserAvatar}}" mode="aspectFill"></image>
+            <image wx:else class="pull-left img-circle imgW40" src="{{ staticImgHost }}/face4.jpg" mode="aspectFill"></image>
+            <span class="width80">　</span>
+            <text class="item-note">{{message.toUserName}}</text>
+            <image wx:if="{{message.toUserCompanyId}}"
+                    bindtap="goProfile" data-userid="{{message.toUserId}}" class="pull-right avatar imgW16 tel-image"  src="../../static/images/icon_profile.png" mode="cover"></image>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">电话</span>
+            <text class="col-blk">{{message.toUserPhone}}</text>
+            <image bindtap="telphone" data-number="{{message.toUserPhone}}" class="pull-right avatar imgW16 tel-image"  src="{{ staticImgHost }}/img21.png" mode="cover"></image>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">单位名称</span>
+            <text class="col-blk">{{message.toUserCompany}}</text>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">状态</span>
+            <text class="col-blk">{{message.status==1?'已读':'未读'}}</text>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW mg-b-sm">
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+            <text>{{message.words}}</text>
+        </view>
+    </view>
+</block>

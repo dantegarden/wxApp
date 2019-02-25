@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/phonebook/phonebook",
+    "pages/register/register",
+    "pages/card/card",
+    "pages/profile/profile",
+    "pages/profile_edit/edit",
+    "pages/invite/invite",
+    "pages/product/product",
+    "pages/product_detail/detail",
+    "pages/product_detail_edit/edit",
+    "pages/product_detail_describe/describe",
+    "pages/product_edit/edit",
+    "pages/product_share/share",
+    "pages/official/official",
+    "pages/official_edit/edit",
+    "pages/official_section_edit/edit",
+    "pages/official_section_edit_tpl2/tpl2",
+    "pages/census/census",
+    "pages/charts/charts",
+    "pages/message_list/list",
+    "pages/message/message",
+    "pages/message_view/view"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#efeef6",
+    "navigationBarBackgroundColor": "#2aa2c1",
+    "navigationBarTitleText": "迪睿思报价工具",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "position": "bottom",
+    "borderStyle": "black",
+    "selectedColor": "#14c58b",
+    "list": [
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "名片",
+        "iconPath": "static/images/icon_mp.png",
+        "selectedIconPath": "static/images/icon_mp_e.png"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "text": "产品",
+        "iconPath": "static/images/icon_cp.png",
+        "selectedIconPath": "static/images/icon_cp_e.png"
+      },
+      {
+        "pagePath": "pages/official/official",
+        "text": "官网",
+        "iconPath": "static/images/icon_gs.png",
+        "selectedIconPath": "static/images/icon_gs_e.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 60000
+  },
+  "debug": true
+}

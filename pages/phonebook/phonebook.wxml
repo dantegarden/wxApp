@@ -1,0 +1,144 @@
+<block wx:if="{{ready}}">
+    <!-- 展示内容 -->
+    <block>
+        <view class="item borderN backgTr" data-usertype="0" data-userid="{{phonebook.me.userId}}" data-companyid="{{phonebook.me.companyId}}" bindtap="viewProfile">
+            <view class="panel-body backgW border-rad8 pos-re">
+                <view class="pull-left mg-r-md pos-re">
+                    <image wx:if="{{phonebook.me.avatar}}" src="{{imgHost + phonebook.me.avatar}}" mode="aspectFill"
+                           class="avatar avatar-md img-circle" alt=""/>
+                    <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar avatar-md img-circle" alt=""/>
+                    <image wx:if="{{phonebook.me.role===1}}" src="{{ staticImgHost }}/img29.png" class="imgW20 pos-ab" style="top:-18px;left:30px;" mode="widthFix"/>
+                </view>
+                <view class="mg-b-5 fontW fontS18">{{phonebook.me.loginName}}</view>
+                <view class="mg-b-5">{{phonebook.me.job || "　"}}</view>
+                <view class="p fontS14 col-gary">{{phonebook.me.company}}</view>
+                <button type="text" class="card card1 img-circle line-height1 imgW28" open-type="share" data-from="myCard"
+                        catchtap="onShareAppMessage">
+                    <image class="userinfo-avatar imgW16" src="{{ staticImgHost }}/img20.png" mode="widthFix"></image>
+                </button>
+                <view class="item panel-footer borderN backgW mg-b-0 pd-4-10 mg-t-10 border-l-blue"
+                      style="margin-left:-15px;">
+                    <view class="text-d-n a">
+                        <image src="{{ staticImgHost }}/img1.png" mode="aspectFit" class="small-img mg-r-md verB" alt=""
+                               title=""/>
+                        {{phonebook.me.phone}}
+                    </view>
+                </view>
+                <view class="item panel-footer borderN backgW mg-b-0 pd-4-10 border-l-blue" style="margin-left:-15px;">
+                    <view class="text-muted text-d-n">
+                        <image src="{{ staticImgHost }}/img2.png" mode="aspectFit" class="small-img mg-r-md verB" alt=""
+                               title=""/>
+                        {{phonebook.me.companyAddress || "　"}}
+                    </view>
+                </view>
+                <view class="card-blue-box"></view>
+            </view>
+        </view>
+    </block>
+
+
+    <block class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+        <view class="tabs">
+            <view class="tab-item">
+             <span class="{{currentTab==0?'active':''}} pd-4-10" style="width:80%;"
+                   data-current="0" bindtap="clickTab" hover-class="">
+                联系人
+             </span>
+            </view>
+            <view class="tab-item">
+            <span class="{{currentTab==1?'active':''}} pd-4-10" style="width:80%;"
+                  data-current="1" bindtap="clickTab" hover-class="">
+               同事
+            </span>
+            </view>
+        </view>
+    </block>
+
+    <block wx:if="{{currentTab==0}}">
+        <view class="item borderN backgTr mg-b-0" wx:for="{{phonebook.customers}}" wx:for-item="customer"
+              wx:key="customer.userId">
+            <view class="panel-body backgW border-rad8 pos-re" data-usertype="2" data-userid="{{customer.userId}}" data-companyid="{{customer.companyId}}"
+                  bindtap="viewProfile">
+                <view class="pull-left mg-r-md">
+                    <image wx:if="{{customer.avatar}}" src="{{imgHost + customer.avatar}}" mode="aspectFill"
+                           class="avatar avatar-md img-circle" alt=""/>
+                    <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar avatar-md img-circle" alt=""/>
+                </view>
+                <view class="mg-b-5 fontW fontS18">{{customer.loginName}}</view>
+                <view class="mg-b-5">{{customer.job}}</view>
+                <view class="p fontS14 col-gary">{{customer.company}}</view>
+
+                <view class="item panel-footer borderN backgW mg-b-0 pd-4-10 mg-t-10 border-l-blue"
+                      style="margin-left:-15px;">
+                    <view class="text-d-n a">
+                        <image src="{{ staticImgHost }}/img1.png" mode="aspectFit" class="small-img mg-r-md verB" alt=""
+                               title=""/>
+                        {{customer.phone}}
+                    </view>
+                </view>
+                <view class="item panel-footer borderN backgW mg-b-0 pd-4-10 border-l-blue" style="margin-left:-15px;">
+                    <view class="text-muted text-d-n">
+                        <image src="{{ staticImgHost }}/img2.png" mode="aspectFit" class="small-img mg-r-md verB" alt=""
+                               title=""/>
+                        {{customer.companyAddress}}
+                    </view>
+                </view>
+                <view class="card-blue-box"></view>
+            </view>
+        </view>
+    </block>
+
+    <block wx:if="{{currentTab==1}}">
+        <view class="item borderN backgTr mg-b-0" wx:for="{{phonebook.workmates}}" wx:for-item="workmate"
+              wx:key="workmate.userId" >
+            <view class="panel-body backgW border-rad8 pos-re" data-usertype="1" data-userid="{{workmate.userId}}" data-companyid="{{workmate.companyId}}" data-role="{{workmate.role}}"
+                  catchlongpress="showSelection" catchtap="viewProfile">
+                <view class="pull-left mg-r-md pos-re">
+                    <image wx:if="{{workmate.avatar}}" src="{{imgHost + workmate.avatar}}" mode="aspectFill"
+                           class="avatar avatar-md img-circle" alt=""/>
+                    <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar avatar-md img-circle" alt=""/>
+                    <image wx:if="{{workmate.role===1}}" src="{{ staticImgHost }}/img29.png" class="imgW20 pos-ab" style="top:-18px;left:30px;" mode="widthFix"/>
+                </view>
+                <view class="mg-b-5 fontW fontS18">{{workmate.loginName}}</view>
+                <view class="mg-b-5">{{workmate.job}}</view>
+                <view class="p fontS14 col-gary">{{workmate.company}}</view>
+
+                <view class="item panel-footer borderN backgW mg-b-0 pd-4-10 mg-t-10 border-l-blue"
+                      style="margin-left:-15px;">
+                    <view class="text-d-n a">
+                        <image src="{{ staticImgHost }}/img1.png" mode="aspectFit" class="small-img mg-r-md verB" alt=""
+                               title=""/>
+                        {{workmate.phone}}
+                    </view>
+                </view>
+                <view class="item panel-footer borderN backgW mg-b-0 pd-4-10 border-l-blue" style="margin-left:-15px;">
+                    <view class="text-muted text-d-n">
+                        <image src="{{ staticImgHost }}/img2.png" mode="aspectFit" class="small-img mg-r-md verB" alt=""
+                               title=""/>
+                        {{workmate.companyAddress}}
+                    </view>
+                </view>
+                <view class="card-blue-box"></view>
+            </view>
+        </view>
+
+        <view class="posf-b" >
+            <button bindtap="inviteWorkmate" open-type="share" data-from="workmateButton"
+                    class="button-block button-positive button-green" hover-class="button-green-clik">
+                邀请同事
+            </button>
+        </view>
+    </block>
+
+    <view class="text-center mg-t-50">
+        <image src="{{ staticImgHost }}/logo.png" class="img-footer" mode="scaleToFill" alt="" title=""/>
+    </view>
+</block>
+
+<!-- 加载时显示 -->
+<block wx:else>
+    <loading>
+        加载中...
+    </loading>
+</block>
+

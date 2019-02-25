@@ -1,0 +1,308 @@
+/* CSS Document */
+.page {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "iconfont", "Microsoft YaHei" !important;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+page{
+    background-color: #efeef6;
+}
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.text-center {
+    text-align: center;
+}
+.backgTr {
+    background-color: transparent;
+}
+.backgW {
+    background-color: #fff!important;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.box-circle {
+    border-radius:4px;
+}
+.item.borderN,
+.panel-footer.borderN {
+    border: none;
+}
+.mg-b-sm {
+    margin-bottom: 10px;
+}
+.mg-b-0 {
+    padding-bottom: 0!important;
+}
+.panel-body {
+    padding: 15px;
+}
+.mg-r-md {
+    margin-right: 15px;
+}
+.mg-t-50 {
+    margin-top: 50px;
+}
+.mg-l-50 {
+    margin-left: 30px;
+}
+.pd-l-0 {
+    padding-left: 0!important;
+}
+.small-img{
+    width: 20px;
+    height: 20px;
+}
+.mg-r-xs {
+    margin-right: 5px;
+}
+
+.imgW16{
+    width:16px;
+    height: 16px;
+}
+
+.fontW{
+    font-weight: bold;
+}
+input,span{
+    display: inline-block;
+    vertical-align:middle;
+}
+
+.pos-re{
+    position: relative;
+}
+.button-del{
+    color: #fff;
+    background-color: rgba(0,0,0,.7);
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.line-l{
+    border-left: solid 3px #c7d342;
+    display: inline-block;
+    padding-left: 10px;
+}
+.fonts14{
+    font-size: 14px;
+}
+.card{
+    background-color: rgba(0,0,0,.7);
+    display: inline-block;
+    position: absolute;
+    right: 17px;
+    padding: 4px;
+    width:20px;
+    height:20px;
+    text-align:center;
+}
+.card1{
+    top: 16px;
+}
+.card2{
+    top: 60px;
+}
+.pd-4-10{
+    padding:4px 10px;
+}
+.mg-t-5{
+    margin-top:5px;
+}
+.mg-t-15{
+    margin-top:15px;
+}
+.color-orange{
+    color: #ff9c00;
+}
+.text-del{
+    text-decoration:line-through;
+}
+.fonts12{
+    font-size: 12px;
+}
+.fr{
+    float:right;
+}
+.left-icon{
+    position: absolute;
+    top: 7px;
+    left: 0;
+}
+.line-height1{
+    line-height: 1;
+}
+.imgW28{
+    width:28px;
+    height:28px;
+}
+.img-footer {
+    width: 100px;
+    height: 60px;
+}
+button::after{ border: none; }
+.button-green2{
+    color:#14c58b;
+    border:solid 1px #14c58b;
+}
+.button-green2-clk{
+    color:#fff;
+    background-color: #14c58b;
+}
+
+
+.swiper-item{
+    width: 100%;
+    display: block;
+    height: 150px;
+}
+.swiper_box {
+    height: 400rpx;
+    width: 100%;
+}
+swiper-item image {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+}
+swiper{
+    height: 260px;
+}
+pd-0{
+    padding: 0px!important;
+}
+/*# sourceMappingURL=text.css.map */
+
+.pd-t-20 {
+    padding-top: 20px;
+}
+.button-blue{
+    border-color: #2aa2c1;
+    background-color: #2aa2c1;
+    color: #fff;
+    border-radius:0px;
+}
+
+.button.button-blue-clik,.button-blue-clik{
+    border-color: #067fc1;
+    background-color: #067fc1;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.mbox{
+    top:0;
+    background-color: rgba(0,0,0,.3);
+    z-index:2;
+}
+.pos-f-b{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    transition: bottom 1s;
+    -moz-transition: bottom 1s; /* Firefox 4 */
+    -webkit-transition: bottom 1s; /* Safari 和 Chrome */
+    -o-transition: bottom 1s; /* Opera */
+    z-index:2;
+}
+.pos-f-b-hide{
+    bottom: -153px;/* 底部高度 */
+}
+.mboxH{display:none;}
+
+.tabs{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: solid 1px #e5e5e5;
+}
+.tab-item1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+    opacity: 0.7;
+}
+.cardBox{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.card-new{
+    background-color: rgba(0,0,0,.7);
+    padding: 4px;
+    text-align:center;
+    margin-bottom:20px
+}
+.line-height1{
+    line-height: 1;
+}
+
+
+
+/* 浮动所有者名片链接 */
+
+.clearfix{overflow: hidden; zoom:1;}
+.fl{ float:left; }
+.fr{ float:right;}
+
+.pd-15{padding:15px;}
+.pd-l-75{padding-left:75px;}
+
+.pos-re{position: relative;}
+.pos-ab{position: absolute;}
+.imgW50{width:50px;height:50px;}
+.imgW40{width:40px;height:40px;}
+.left-div{top:0;left:0;bottom:0;width:60px;}
+.left-img{top:50%;left:10px;margin-top:-25px;}
+
+.right-div{top:0;right:0;bottom:0;width:90px;}
+.right-img{top:10px;right:20px;}
+
+.lineh60{line-height: 60px;}
+span,image{vertical-align: middle;}
+
+.bg-blue{background-color: #2aa2c1;color:#fff;}
+.fontS12{font-size:12px;}
+.fontS14{font-size:14px;}
+.po-fix{position: fixed;left:0;right:0;top:0;z-index: 3;}
+.imgW20{
+    width: 20px;
+    height: 20px;
+}
+
+/*# sourceMappingURL=text.css.map */

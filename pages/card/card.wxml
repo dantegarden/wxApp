@@ -1,0 +1,109 @@
+<!--profile.wxml-->
+<form bindsubmit="saveCard">
+    <view class="list pd-l-20 backgW mg-b-sm">
+        <view class="item col-gary pd-r-40 borderN pd-l-0 border-b">
+            头像
+            <image bindtap="bindAvator" wx:if="{{formdata.avatar}}" class="pull-right md-img avatar avatar-md img-circle imgW40" src="{{imgHost + formdata.avatar}}" mode="aspectFill"></image>
+            <image bindtap="bindAvator" wx:else class="pull-right md-img avatar avatar-md img-circle imgW40" src="{{ staticImgHost }}/default_avator.png" mode="aspectFill"></image>
+        </view>
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">姓名</span>
+            <input type="text" name="loginName" id="loginName" placeholder="请输入姓名"
+                   value="{{formdata.loginName}}" data-field="formdata.loginName" bindblur="bindInputField"
+                   data-validate="true" data-validate-rules="required"
+                   class="item-note {{validation.formdata.loginName.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.formdata.loginName.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.formdata.loginName.errMsg}}</span>
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">手机</span>
+            <input type="number" name="phone" id="phone" placeholder="请输入手机号"
+                   value="{{formdata.phone}}" data-field="formdata.phone" bindblur="bindInputField"
+                   data-validate="true" data-validate-rules="required phone"
+                   class="item-note {{validation.formdata.phone.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.formdata.phone.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.formdata.phone.errMsg}}</span>
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">职位</span>
+            <input type="text" name="job" id="job"
+                   data-field="formdata.job" value="{{formdata.job}}" bindblur="bindInputField" placeholder="请输入职位" class="item-note" />
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">邮箱</span>
+            <input type="text" name="companyEmail" id="companyEmail" placeholder="请输入邮箱"
+                   value="{{formdata.companyEmail}}" data-field="formdata.companyEmail" bindblur="bindInputField"
+                   data-validate="true" data-validate-rules="email"
+                   class="item-note {{validation.formdata.companyEmail.isErr && 'btnError'}}" />
+            <span wx:if="{{validation.formdata.companyEmail.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.formdata.companyEmail.errMsg}}</span>
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">办公地址</span>
+            <input type="text" name="companyAddress" id="companyAddress"
+                   data-field="formdata.companyAddress" value="{{formdata.companyAddress}}" bindblur="bindInputField" placeholder="请输入办公地址" class="item-note" />
+            <span class="line-l2 img-r">
+            <image src="{{ staticImgHost }}/img2.png" mode="aspectFit" class="small-img" style="margin-left:5px;margin-top:-5px;"  bindtap="bindCompanyAddress"/>
+        </span>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="line-l col-blk">企业信息</span>
+        </view>
+    </view>
+    <view class="list pd-l-20 backgW mg-b-sm">
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">公司</span>
+            <input type="text" name="company" id="company" placeholder="请输入公司名称"
+                   value="{{formdata.company}}" data-field="formdata.company" bindblur="bindInputField"
+                   data-validate="true" data-validate-rules="required"
+                   class="item-note {{validation.formdata.company.isErr && 'btnError'}}"
+                   disabled="{{companyDisabled}}"/>
+            <span wx:if="{{validation.formdata.company.isErr}}" class="pos-ab fontS12 colRed errCol">{{validation.formdata.company.errMsg}}</span>
+        </view>
+    </view>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="line-l col-blk">
+                <input type="text" data-field="formdata.signatureTitle" value="{{formdata.signatureTitle}}" placeholder="个性签名" bindblur="bindInputField" style="font-size:16px;" class="item-note" />
+            </span>
+        </view>
+    </view>
+    <view class="list pd-l-20 backgW mg-b-sm">
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+        <textarea name="signature" id="signature" placeholder="个性签名"
+                  data-field="formdata.signature" value="{{formdata.signature}}" bindblur="bindInputField" placeholder="请输入个性签名" />
+        </view>
+    </view>
+
+
+    <view class="list pd-l-20 backgW">
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+            <span class="line-l  col-blk">
+                <input type="text" data-field="formdata.introductionTitle" value="{{formdata.introductionTitle}}" placeholder="展示信息" bindblur="bindInputField" style="font-size:16px;" class="item-note" />
+            </span>
+        </view>
+    </view>
+    <view class="list pd-20 pd-t-0 backgW">
+        <block wx:if="{{formdata.introduction && formdata.introduction.length>0}}">
+            <view class="mg-b-10 pos-re"
+                 wx:for="{{formdata.introduction}}" wx:for-index="index" wx:for-item="iImg" wx:key="index">>
+                <image class="userinfo-avatar full" src="{{imgHost + iImg.imageId}}"  mode="widthFix"></image>
+                <view class="button-del" bindtap="delIntroductionImg" data-imageid="{{iImg.imageId}}">
+                    <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+                    删除
+                </view>
+            </view>
+        </block>
+        <view bindtap="bindIntroductionImg" class="border-gary mg-b-10 text-center fontW pd-t-20 pd-20">
+            <image class="userinfo-avatar" src="{{ staticImgHost }}/img5.png" class="imgW16" mode="widthFix"></image>
+            <view class="colGreen">点击添加展示信息</view>
+        </view>
+    </view>
+
+    <view class="item padding-vertical borderN backgTr">
+        <button class="button-block button-positive button-green" hover-class="button-green-clik" formType="submit">
+            保存
+        </button>
+    </view>
+</form>

@@ -1,0 +1,80 @@
+<!--index.wxml-->
+
+<block class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <view class="tabs">
+        <view class="tab-item">
+             <span class="{{currentTab==0?'active':''}} pd-4-10 half"
+                   data-current="0" bindtap="clickTab" hover-class="active">
+                浏览
+             </span>
+        </view>
+        <view class="tab-item">
+            <span class="{{currentTab==1?'active':''}} half"
+                  data-current="1" bindtap="clickTab" hover-class="active">
+               点赞
+            </span>
+        </view>
+
+        <view class="tab-item">
+            <span class="{{currentTab==2?'active':''}} half"
+                  data-current="2" bindtap="clickTab" hover-class="active">
+               转发
+            </span>
+        </view>
+
+    </view>
+</block>
+
+<block wx:if="{{currentTab==0}}">
+    <view class="item borderN backgTr mg-b-0" wx:for="{{currentList}}" wx:for-item="item"
+          wx:key="item.id">
+        <view class="panel-body backgW">
+            <image wx:if="{{item.imageId}}" src="{{ imgHost + item.imageId }}" class="avatar imgW40 img-circle" />
+            <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar imgW40 img-circle" />
+            <view class="fr">{{item.createTime}}</view>
+        </view>
+        <view class="item panel-footer borderN backgW pd-t-0">
+            <view  class="text-d-n">
+                {{item.userName}} 查看了您的名片
+            </view>
+        </view>
+    </view>
+</block>
+
+<block wx:if="{{currentTab==1}}">
+    <view class="item borderN backgTr mg-b-0" wx:for="{{currentList}}" wx:for-item="item"
+          wx:key="item.id">
+        <view class="panel-body backgW">
+            <image wx:if="{{item.imageId}}" src="{{ imgHost + item.imageId }}" class="avatar imgW40 img-circle" />
+            <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar imgW40 img-circle" />
+            <view class="fr">{{item.createTime}}</view>
+        </view>
+        <view class="item panel-footer borderN backgW pd-t-0">
+            <view  class="text-d-n">
+                {{item.userName}} 赞了您的名片
+            </view>
+        </view>
+    </view>
+</block>
+
+<block wx:if="{{currentTab==2}}">
+    <view class="item borderN backgTr mg-b-0" wx:for="{{currentList}}" wx:for-item="item"
+          wx:key="item.id">
+        <view class="panel-body backgW">
+            <image wx:if="{{item.imageId}}" src="{{ imgHost + item.imageId }}" class="avatar imgW40 img-circle" />
+            <image wx:else src="{{ staticImgHost }}/face4.jpg" class="avatar imgW40 img-circle" />
+            <view class="fr">{{item.createTime}}</view>
+        </view>
+        <view wx:if="{{item.groupId}}" class="item panel-footer borderN backgW pd-t-0">
+            <view  class="text-d-n">
+                {{item.userName}} 转发到微信群
+                <open-data style="color:red;" type="groupName" open-gid="{{item.groupId}}"></open-data>
+            </view>
+        </view>
+        <view wx:else class="item panel-footer borderN backgW pd-t-0">
+            <view  class="text-d-n">
+                {{item.userName}} 转发了您的名片
+            </view>
+        </view>
+    </view>
+</block>

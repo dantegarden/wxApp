@@ -1,0 +1,101 @@
+<block wx:if="{{ready}}">
+    <!-- 展示内容 -->
+    <block wx:if="{{ products.length > 0 }}">
+        <view wx:for="{{products}}" wx:for-index="index" wx:for-item="product" wx:key="index"
+              data-id="{{product.productId}}" bindtap="goDetail" >
+            <view class="item borderN backgTr mg-b-0">
+                <view class="backgW pos-re box-circle">
+                    <image wx:if="{{product.poster}}" class="full" src="{{imgHost + product.poster}}" mode="widthFix"></image>
+                    <image wx:else class="full" src="{{ staticImgHost}}/noneproduct.jpg" mode="widthFix"></image>
+                    <view class="cardBox">
+                        <block wx:if="{{index===0}}">
+                            <button class="card-new img-circle line-height1 imgW28" data-advertising="{{product.advertising}}" data-poster="{{product.poster}}"
+                                    open-type="share"  catchtap="onShareAppMessage">
+                                <image class="imgW16" src="{{ staticImgHost }}/img20.png" mode="widthFix"></image>
+                            </button>
+                        </block>
+                        <block wx:if="{{session.companyId!=owner.companyId}}">
+                            <button class="card-new img-circle line-height1 imgW28 pos-re" catchtap="leaveMessage">
+                                <image class="imgW16" src="{{ staticImgHost }}/icon_msg.png" mode="widthFix" style="margin-top:2px;"></image>
+                            </button>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="item borderN backgTr mg-b-0 mg-t-0">
+                <view class="panel-body backgW pos-re box-circle mg-t-0">
+                    <view class="item pd-r-40 borderN pd-4-10 pd-l-0 fonts12">
+                        <span class="color-orange fontS18 mg-r-md">￥{{product.currentPrice}}</span>
+                        [<span class="text-del">￥{{product.originalPrice}}</span>]
+                    </view>
+                    <view class="item pd-r-40 borderN pd-4-10 pd-l-0">
+                        <span class="fontW">{{product.productName}}</span>
+                    </view>
+                    <view class="item pd-r-40 borderN pd-4-10 pos-re pd-l-0">
+                        <image class="small-img left-icon" src="{{ staticImgHost }}/img23.png"></image>
+                        <span class="mg-l-50 colRed fontS12">{{product.advertising}} </span>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="text-center mg-t-50">
+            <image src="{{ staticImgHost }}/logo.png" class="img-footer" mode="scaleToFill" alt="" title=""/>
+        </view>
+
+        <view  wx:if="{{session.companyId===owner.companyId && session.role===1}}" class="posf-b" >
+            <button class="button-block button-positive button-green2" hover-class="button-green2-clk" bindtap="goEdit">
+                编辑我的产品
+            </button>
+        </view>
+    </block>
+
+
+    <block wx:elif="{{products.length == 0 && session.companyId===owner.companyId && session.role===1}}" >
+        <view class="item borderN backgTr mg-b-0">
+            <view class="backgW pos-re box-circle">
+                <image class="" src="{{ staticImgHost }}/noproduct_blank.jpg" mode="widthFix"></image>
+            </view>
+        </view>
+        <view class="item borderN backgTr mg-b-0 mg-t-0">
+            <view class="panel-body backgW pos-re box-circle mg-t-0">
+                <view class="item pd-r-40 borderN pd-4-10 pd-l-0 fonts12">
+                    <span class="color-orange fontS18 mg-r-md">￥现价</span>
+                    [<span class="text-del">￥原价</span>]
+                </view>
+                <view class="item pd-r-40 borderN pd-4-10 pd-l-0">
+                    <span class="fontW">我的产品名称</span>
+                </view>
+                <view class="item pd-r-40 borderN pd-4-10 pos-re pd-l-0">
+                    <image class="small-img left-icon" src="{{ staticImgHost }}/img23.png"></image>
+                    <span class="mg-l-50">我的推广语 </span>
+                </view>
+            </view>
+        </view>
+
+        <view class="item padding-vertical borderN backgTr">
+            <button class="button-block button-positive button-green2" hover-class="button-green2-clk" bindtap="goEdit">
+                编辑我的产品
+            </button>
+        </view>
+    </block>
+
+    <block wx:else>
+        <view>
+            <image class="full" src="{{ staticImgHost }}/noproduct_background.jpg" mode="widthFix"></image>
+        </view>
+    </block>
+
+    <view wx:if="{{session.flag!==1}}" class="sh fontS12" catchtap="goCreateAccount">
+        <view>创建</view>
+        <view>我的商号</view>
+    </view>
+</block>
+
+<!-- 加载时显示 -->
+<block wx:else>
+    <loading>
+        加载中...
+    </loading>
+</block>
+

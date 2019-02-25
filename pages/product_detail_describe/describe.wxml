@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="list pd-l-20 backgW mg-t-sm">
+    <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+        <span class="line-l  col-blk">
+            <input type="text" data-field="describe.title" value="{{describe.title}}" placeholder="请输入标题" bindblur="bindInputField" style="font-size:16px;" class="item-note" />
+        </span>
+    </view>
+</view>
+<view wx:if="{{ describe.productDescribeListImages.length > 0 }}" class="list pd-20 backgW border-b">
+    <view class="pos-re" wx:for="{{describe.productDescribeListImages}}" wx:for-index="index" wx:for-item="dImg" wx:key="index">
+        <image class="userinfo-avatar full" src="{{imgHost + dImg.imageId}}" mode="widthFix"></image>
+        <view class="button-del" data-id="{{dImg.imageId}}" bindtap="delUploadImage">
+            <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+            删除
+        </view>
+    </view>
+</view>
+
+<view class="list pd-20 backgW border-b">
+   <view class="border-gary text-center fontW pd-20" bindtap="uploadImage">
+       <image class="userinfo-avatar" src="{{ staticImgHost }}/img5.png" class="imgW16"  mode="widthFix"></image>
+       <view class="colGreen">+点击添加图片</view>
+   </view>
+</view>
+
+<view class="list pd-l-20 backgW mg-b-sm">
+    <view class="item col-gary pd-r-40 borderN pd-l-0">
+        <textarea class="full" data-field="describe.text" value="{{describe.text}}" placeholder="在这里输入描述文字" bindinput="bindInputField" name="textarea" adjust-position="true" cursor-spacing="140" maxlength="500"/>
+    </view>
+</view>
+
+<view class="item padding-vertical borderN backgTr">
+    <button class="button-block button-positive button-green" hover-class="button-green-clik" bindtap="saveDescribe">
+        保存
+    </button>
+</view>

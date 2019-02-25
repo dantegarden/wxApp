@@ -1,0 +1,149 @@
+<!--profile.wxml-->
+<block wx:if="{{ready}}">
+    <!-- 展示内容 -->
+    <block>
+        <view class="item borderN backgTr">
+            <view class="backgW pos-re box-circle border-cir">
+                <image wx:if="{{profile.avatar}}" class="full" src="{{imgHost + profile.avatar}}" mode="widthFix"></image>
+                <image wx:else class="full" src="{{ staticImgHost }}/face4.jpg" mode="widthFix"></image>
+                <view class="cardBox">
+                    <button class="card-new img-circle line-height1 imgW28" open-type="share" >
+                        <image class="imgW16" src="{{ staticImgHost }}/img20.png" mode="widthFix"></image>
+                    </button>
+                    <button class="card-new img-circle line-height1 imgW28" wx:if="{{owner.id==session.userId}}" bindtap="goEdit" >
+                        <image class="imgW16" src="{{ staticImgHost }}/img19.png" mode="widthFix"></image>
+                    </button>
+                    <block wx:if="{{session.userId===owner.id}}">
+                        <form bindsubmit="goMyMessage" report-submit="true">
+                            <button class="card-new img-circle line-height1 imgW28 pos-re" formType="submit">
+                                <image class="imgW16" src="{{ staticImgHost }}/icon_msglist.png" mode="widthFix" style="margin-top:2px;"></image>
+                                <span wx:if="{{gam.messageNum>0}}" class="box-red">{{gam.messageNum}}</span>
+                            </button>
+                        </form>
+                    </block>
+                    <block wx:else>
+                        <button class="card-new img-circle line-height1 imgW28 pos-re" bindtap="leaveMessage">
+                            <image class="imgW16" src="{{ staticImgHost }}/icon_msg.png" mode="widthFix" style="margin-top:2px;"></image>
+                        </button>
+                    </block>
+                </view>
+            </view>
+            <view class="backgW text-center">
+                {{profile.loginName}}
+            </view>
+            <view class="backgW text-center fonts14 col-gary">
+                {{profile.company}}
+            </view>
+            <view class="item borderN backgW tabs borderN panel-footer border-cir2">
+                <view class="tab-item1">
+                    <button class="line-height1 backgTr" bindtap="skim">
+                        <image class="imgW25" src="{{ staticImgHost }}/img16.png" mode="widthFix"></image>
+                    </button>
+                    浏览  {{gam.skimNum}}
+                </view>
+                <view class="tab-item1">
+                    <button class="line-height1 backgTr" bindtap="upvote">
+                        <image wx:if="{{gam.upvote}}" class="imgW25" src="{{ staticImgHost }}/img17e.png" mode="widthFix"></image>
+                        <image wx:else class="imgW25" src="{{ staticImgHost }}/img17.png" mode="widthFix"></image>
+                    </button>
+                    点赞   {{gam.upvoteNum}}
+                </view>
+                <view class="tab-item1">
+                    <button class="line-height1 backgTr" open-type="share" >
+                        <image class="imgW25" src="{{ staticImgHost }}/img18.png" mode="widthFix"></image>
+                    </button>
+                    转发  {{gam.shareNum}}
+                </view>
+            </view>
+        </view>
+    </block>
+
+    <view class="list pd-l-20 backgW">
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="line-l col-blk">名片信息</span>
+            <button wx:if="{{session.userId!=owner.id}}" type="text" class="line-height1 fr button-add" hover-class="button-add-clk" catchtap="addPhoneContact">
+                添加到手机通讯录
+            </button>
+        </view>
+    </view>
+    <view class="list pd-l-20 backgW mg-b-sm">
+
+        <view class="item item-icon-right col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">手机</span>
+            <input type="text" disabled="disabled" value="{{profile.phone}}" data-value="{{profile.phone}}" bindlongtap="copyToClipboard" class="item-note"/>
+            <image bindtap="telphone" data-number="{{profile.phone}}" class="pull-right avatar imgW16 tel-image"  src="{{ staticImgHost }}/img21.png" mode="cover"></image>
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">邮箱</span>
+            <input type="text" disabled="disabled" value="{{profile.companyEmail}}" data-value="{{profile.companyEmail}}" bindlongtap="copyToClipboard" class="item-note"/>
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">职位</span>
+            <input type="text" disabled="disabled" value="{{profile.job}}" data-value="{{profile.job}}" bindlongtap="copyToClipboard" class="item-note"/>
+        </view>
+        <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+            <span class="width80">公司</span>
+            <input type="text" disabled="disabled" value="{{profile.company}}" data-value="{{profile.company}}" bindlongtap="copyToClipboard" class="item-note"/>
+        </view>
+        <view class="item col-gary pd-r-40 borderN pd-l-0">
+            <span class="width80">地址</span>
+            <text class="item-note" data-value="{{profile.companyAddress}}" bindlongtap="copyToClipboard">{{profile.companyAddress}}</text>
+        </view>
+    </view>
+
+    <block wx:if="{{profile.signature}}">
+        <view class="list pd-l-20 backgW">
+            <view class="item col-gary pd-r-40 borderN border-b pd-l-0">
+                <span class="line-l col-blk">{{profile.signatureTitle}}</span>
+            </view>
+        </view>
+        <view class="list pd-l-20 backgW mg-b-sm">
+            <view class="item col-gary pd-r-40 borderN pd-l-0">
+                <text>{{profile.signature}}</text>
+            </view>
+        </view>
+    </block>
+
+    <block wx:if="{{profile.introduction.length>0}}">
+        <view class="list pd-l-20 backgW">
+            <view class="item col-gary pd-r-40 borderN pd-l-0">
+                <span class="line-l  col-blk">{{profile.introductionTitle}}</span>
+            </view>
+        </view>
+        <view class="list pd-20 pd-t-0 backgW">
+            <view class="mg-b-10 pos-re"
+                  wx:for="{{profile.introduction}}" wx:for-index="index" wx:for-item="iImg" wx:key="index">
+                <image class="userinfo-avatar full" src="{{imgHost + iImg.imageId}}" mode="widthFix"></image>
+            </view>
+        </view>
+    </block>
+
+    <view class="text-center mg-t-50">
+        <image src="{{ staticImgHost }}/logo.png" class="img-footer" mode="scaleToFill" alt="" title=""/>
+    </view>
+
+    <view class="posf-b" wx:if="{{gam.isNew && session.userId!=owner.id}}">
+        <button bindtap="addToMyCustomer" class="button-block button-positive button-green" hover-class="button-green-clik">
+            +添加到我的联系人
+        </button>
+    </view>
+
+    <view wx:if="{{session.flag!==1}}" class="sh fontS12" catchtap="goCreateAccount">
+        <view>创建</view>
+        <view>我的商号</view>
+    </view>
+    <view wx:if="{{session.flag===1}}" class="sh fontS12" catchtap="goHome">
+        <view>
+            <image class="imgW16" src="{{ staticImgHost }}/img50.png" mode="widthFix"></image>
+        </view>
+        <view>通讯录</view>
+    </view>
+</block>
+
+<!-- 加载时显示 -->
+<block wx:else>
+    <loading>
+        加载中...
+    </loading>
+</block>
+

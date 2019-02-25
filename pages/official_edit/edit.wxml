@@ -1,0 +1,130 @@
+<!--index.wxml-->
+<view class="borderN backgTr mg-b-sm">
+    <view class="backgW pos-re" style="">
+        <image wx:if="{{official.poster}}" class="full" src="{{imgHost + official.poster}}" mode="widthFix"></image>
+        <image wx:else class="full" src="{{ staticImgHost }}/img30.jpg" mode="widthFix"></image>
+        <button type="text" class="button-del fonts12 line-height1" style="z-index:3;bottom:20px;top: inherit;" catchtap="uploadImage">
+            <image src="{{ staticImgHost }}/img22.png" class="imgW16" mode="widthFix"></image>
+            更换图片
+        </button>
+        <view class="pos-ab" style="left:20px;top:40px;right:20px;color:#fff;">
+            <input type="text" data-field="official.officialName" value="{{official.officialName}}"  bindblur="bindInputField" placeholder="此处填写公司名称" placeholder-class="fontW col-fff fontS20" class="mg-b-sm fonts20 full textS" />
+            <textarea data-field="official.officialDescribe" value="{{official.officialDescribe}}" bindblur="bindInputField"
+                      placeholder="此处填写副标题" maxlength="30" placeholder-class="col-fff fonts14"
+                      class="fonts14 textS" style="width:60%;" name="textarea"/>
+        </view>
+    </view>
+</view>
+
+<block wx:for="{{official.officialSections}}" wx:for-index="index" wx:for-item="section" wx:key="section.id">
+    <block wx:if="{{section.template==1}}">
+        <view class="list pd-l-16 backgW mg-b-sm pos-re">
+            <view class="item col-gary pd-r-40 borderN pd-l-0 pd-b-0 pd-t-0">
+                <span class="col-blk">{{section.label}}</span>
+            </view>
+            <button type="text" class="button-del fonts12 line-height1 zindex2" data-key="{{section.key}}" bindtap="deleteSection">
+                <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+                删除
+            </button>
+            <button type="text" class="button-del button-del2 fonts12 line-height1 zindex2"  data-section="{{section}}" bindtap="editSection">
+                <image src="{{ staticImgHost }}/img19.png" class="imgW16" mode="widthFix"></image>
+                编辑
+            </button>
+            <block wx:for="{{section.sectionItems}}" wx:for-index="index" wx:for-item="item" wx:key="item.id">
+                <block class="item" wx:for="{{item.sectionImageList}}" wx:for-index="index" wx:for-item="sIimg" wx:key="sIimg.id">
+                    <view class="item borderN pd-l-0 pd-b-0 pd-r-0">
+                        <image class="full" src="{{imgHost + sIimg.imageId}}" mode="widthFix"></image>
+                    </view>
+                </block>
+                <view wx:if="{{item.text}}" class="item item-icon-right col-gary pd-r-40 borderN pd-l-0 pd-r-0">
+                    <text style="line-height: 1.7;">{{item.text}}</text>
+                </view>
+            </block>
+        </view>
+    </block>
+
+    <block wx:elif="{{section.template==2}}">
+        <view class="list pd-l-16 backgW mg-b-sm pos-re">
+            <view class="item col-gary pd-r-40 borderN pd-l-0 pd-b-0 pd-t-0">
+                <span class="col-blk">{{section.label}}</span>
+            </view>
+            <button type="text" class="button-del fonts12 line-height1 zindex2" data-key="{{section.key}}" bindtap="deleteSection">
+                <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+                删除
+            </button>
+            <button type="text" class="button-del button-del2 fonts12 line-height1 zindex2"  data-section="{{section}}" bindtap="editSection">
+                <image src="{{ staticImgHost }}/img19.png" class="imgW16" mode="widthFix"></image>
+                编辑
+            </button>
+            <view wx:if="{{section.sectionItems.length>0}}" class="panel-body backgW item borderN pd-l-0 pd-b-0 pd-r-0">
+                <block wx:for="{{section.sectionItems}}" wx:for-index="index" wx:for-item="item" wx:key="item.id">
+                    <view class="imgbox2-1">
+                        <block wx:for="{{item.sectionImageList}}" wx:for-index="index" wx:for-item="sIimg" wx:key="sIimg.id">
+                            <view class="pos-re" style="">
+                                <image class="userinfo-avatar full" src="{{imgHost + sIimg.imageId}}" mode="widthFix"></image>
+                            </view>
+                        </block>
+                        <view wx:if="{{item.title}}" class="text-center mg-t-sm">
+                            <text class="col-blk2 fonts20">{{item.title}}</text>
+                        </view>
+                        <view wx:if="{{item.subTitle}}" class="text-center mg-t-sm">
+                            <text class="col-blk2 fonts16">{{item.subTitle}}</text>
+                        </view>
+                        <view wx:if="{{item.text}}" class="mg-t-sm mg-b-sm">
+                            <text class="fonts14 col-gary">{{item.text}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+
+    <block wx:elif="{{section.template==4}}">
+        <view class="list pd-l-16 backgW mg-b-sm pos-re">
+            <view class="item col-gary pd-r-40 borderN pd-l-0 pd-b-0 pd-t-0">
+                <span class="col-blk">{{section.label}}</span>
+            </view>
+            <button type="text" class="button-del fonts12 line-height1 zindex2" data-key="{{section.key}}" bindtap="deleteSection">
+                <image src="{{ staticImgHost }}/img4.png" class="imgW16" mode="widthFix"></image>
+                删除
+            </button>
+            <button type="text" class="button-del button-del2 fonts12 line-height1 zindex2"  data-section="{{section}}" bindtap="editSection">
+                <image src="{{ staticImgHost }}/img19.png" class="imgW16" mode="widthFix"></image>
+                编辑
+            </button>
+            <view wx:if="{{section.sectionItems.length>0}}" class="panel-body backgW item borderN pd-l-0 pd-b-0 pd-r-0">
+                <block wx:for="{{section.sectionItems}}" wx:for-index="index" wx:for-item="item" wx:key="item.id">
+                    <view class="imgbox4">
+                        <block wx:for="{{item.sectionImageList}}" wx:for-index="index" wx:for-item="sIimg" wx:key="sIimg.id">
+                            <image class="mg-b-sm full" src="{{imgHost + sIimg.imageId}}" mode="widthFix"></image>
+                        </block>
+                        <view wx:if="{{item.title}}" class="text-center">{{item.title}}</view>
+                    </view>
+
+                    <!--<view class="imgbox4">-->
+                        <!--<block wx:for="{{item.sectionImageList}}" wx:for-index="index" wx:for-item="sIimg" wx:key="sIimg.id">-->
+                            <!--<view class="mg-b-sm" style="background: url('{{imgHost + sIimg.imageId}}') no-repeat center;background-size: 100%;" >-->
+                                <!--<image class="full" src="{{ staticImgHost }}/img34.png" mode="widthFix"></image>-->
+                            <!--</view>-->
+                        <!--</block>-->
+                        <!--<view wx:if="{{item.sTitle}}" class="text-center fontS12">{{item.sTitle}}</view>-->
+                    <!--</view>-->
+                </block>
+            </view>
+        </view>
+    </block>
+</block>
+
+<view class="list pd-20 backgW mg-b-10">
+    <view class="border-gary text-center fontW pd-20" bindtap="addSection">
+        <image bindtap="addSection" class="userinfo-avatar" src="{{ staticImgHost }}/img5.png" class="imgW16" mode="widthFix"></image>
+        <view class="colGreen">点击添加版块</view>
+    </view>
+</view>
+
+<view class="item padding-vertical borderN backgTr">
+    <button bindtap="saveOfficial" class="button-block button-positive button-green" hover-class="button-green-clik">
+        保存官网展示
+    </button>
+</view>
+

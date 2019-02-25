@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "分享到朋友圈",
+  "usingComponents": {
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
+  }
+}

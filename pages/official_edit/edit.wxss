@@ -1,0 +1,283 @@
+/* CSS Document */
+.page {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "iconfont", "Microsoft YaHei" !important;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+page{
+    background-color: #efeef6;
+}
+
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.button:after {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    bottom: -6px;
+    left: -6px;
+    content: ' ';
+}
+.button-block {
+    display: block;
+    clear: both;
+}
+.button.button-positive {
+    border-color: transparent;
+    background-color: #387ef5;
+    color: #fff;
+}
+.button.button-block,
+.button.button-full {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.text-center {
+    text-align: center;
+}
+.button-block:after {
+    clear: both;
+}
+.backgTr {
+    background-color: transparent;
+}
+.backgW {
+    background-color: #fff!important;
+}
+.item.borderN,
+.panel-footer.borderN {
+    border: none;
+}
+.button.margLR {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mg-b-sm {
+    margin-bottom: 10px;
+}
+.mg-b-0 {
+    margin-bottom: 0;
+}
+.pd-b-0 {
+    padding-bottom: 0!important;
+}
+.panel-body {
+    padding: 15px;
+}
+.mg-r-md {
+    margin-right: 15px;
+}
+.mg-t-50 {
+    margin-top: 50px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.mg-r-xs {
+    margin-right: 5px;
+}
+.imgW40{
+    width: 40px;
+    height: 40px;
+}
+.pull-right.imgW40 {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    display: block;
+    margin-top: -20px;
+}
+.imgW16{
+    width:16px;
+    height: 16px;
+}
+.pull-right.imgW16 {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    display: block;
+    margin-top: -8px;
+}
+.item.border-b, .border-b {
+    border-bottom: solid 1px #ddd;
+}
+.item-note {
+    color: #000;
+    font-size: 14px;
+}
+.pd-l-0{
+    padding-left: 0;
+}
+.pd-r-0{
+    padding-right: 0;
+}
+.col-gary {
+    color: #aaa;
+}
+.col-blk{
+    color: #000;
+    font-weight: bold;
+}
+.col-blk2{
+    color: #000;
+
+}
+
+.border-gary {
+    border: solid 1px #ddd;
+    overflow: hidden;
+}
+.fontW{
+    font-weight: bold;
+}
+input,span{
+    display: inline-block;
+    vertical-align:middle;
+
+  
+}
+.button-green {
+    color: #ffffff;
+    background-color: #14c58b;
+}
+.button.button-green-clik,.button-green-clik{
+    border-color: #498f24;
+    background-color: #66cc33;
+    color: #fff;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.list>.item>input{
+    max-width:80%;
+    width:200px;
+}
+.pos-re{
+    position: relative;
+}
+.pos-ab{
+    position: absolute;
+}
+.pd-t-0 {
+    padding-top: 0!important;
+}
+.pd-b-0 {
+    padding-bottom: 0!important;
+}
+.fonts14{
+    font-size: 14px;
+}
+.fonts16{
+    font-size: 16px;
+}
+.fonts20{
+    font-size: 20px;
+}
+
+.cardBox{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.card-new{
+    background-color: rgba(0,0,0,.7);
+    padding: 4px;
+    text-align:center;
+    margin-bottom:20px
+}
+.line-height1{
+    line-height: 1;
+}
+button::after{ border: none; }
+.imgW28{
+    width:28px;
+    height:28px;
+}
+button::after{ border: none; }
+.button-green2{
+    color:#14c58b;
+    border:solid 1px #14c58b;
+}
+.button-green2-clk{
+    color:#fff;
+    background-color: #14c58b;
+}
+.imgbox2-1{
+    width:48%;
+    vertical-align: top;
+    margin-bottom:10px;
+    display: inline-block;
+    padding:0;
+    box-sizing: border-box;
+}
+.imgbox2-1:nth-child(2n-1){
+    margin-right:4%;
+}
+.imgbox2-1>image{  display: block;}
+
+
+.imgbox2{
+    width:46%;
+    margin-right:4%;
+    margin-bottom:10px;
+    display: inline-block;
+    padding:0;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+}
+.imgbox2>image{  display: block;}
+
+.imgbox4{
+    width:23%;
+    margin-right:2%;
+    margin-bottom:10px;
+    display: inline-block;
+    padding:0;
+    box-sizing: border-box;
+    vertical-align:top;
+}
+
+.imgbox4>image{  display: block;}
+.mg-t-15 {
+    margin-top: 15px;
+}
+.button-del{
+    color: #fff;
+    background-color: rgba(0,0,0,.7);
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.button-del2{
+    right: 70px;
+}
+.zindex2{
+    z-index:2;
+}
+image{
+    vertical-align: sub;
+}
+.textS{
+    text-shadow: 2px 2px 3px #000000;
+    -webkit-text-shadow: 2px 2px 3px #000000;
+    -moz-text-shadow:2px 2px 3px #000000;
+}
+
+/*# sourceMappingURL=text.css.map */
